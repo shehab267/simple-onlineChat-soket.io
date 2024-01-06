@@ -1,128 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js" type="module"></script>
-    <style>
-        body {
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            width: 90%;
-            max-width: 90%;
-            max-width: 1200px;
-        }
-        #message-container {
-            border: 1px solid black;
-            flex-grow: 1;
-            overflow-y: auto;
-        }
-        #message-container div{
-            background-color: #CCC;
-            padding: 5px;
-        }
-        .container {
-            width: 80%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="script.js" type="module"></script>
+  <style>
+    body {
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 90%;
+      max-width: 90%;
+      max-width: 1200px;
+    }
 
-        .container * {
-            box-sizing: border-box;
-        }
+    #message-container {
+      border: 1px solid black;
+      flex-grow: 1;
+      overflow-y: auto;
+    }
 
-        .flex-outer,
-        .flex-inner {
-            list-style-type: none;
-            padding: 0;
-        }
+    #message-container div {
+      background-color: #CCC;
+      padding: 5px;
+    }
 
-        .flex-outer {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+    .container {
+      width: 80%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-        .flex-outer li,
-        .flex-inner {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-        }
+    .container * {
+      box-sizing: border-box;
+    }
 
-        .flex-inner {
-            padding: 0 8px;
-            justify-content: space-between;  
-        }
+    .flex-outer,
+    .flex-inner {
+      list-style-type: none;
+      padding: 0;
+    }
 
-        .flex-outer > li:not(:last-child) {
-            margin-bottom: 20px;
-        }
+    .flex-outer {
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-        .flex-outer li label,
-        .flex-outer li p {
-            padding: 8px;
-            font-weight: 300;
-            letter-spacing: .09em;
-            text-transform: uppercase;
-        }
+    .flex-outer li,
+    .flex-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
 
-        .flex-outer > li > label,
-        .flex-outer li p {
-            flex: 1 0 120px;
-            max-width: 220px;
-        }
+    .flex-inner {
+      padding: 0 8px;
+      justify-content: space-between;
+    }
 
-        .flex-outer > li > label + *,
-        .flex-inner {
-            flex: 1 0 220px;
-        }
+    .flex-outer>li:not(:last-child) {
+      margin-bottom: 20px;
+    }
 
-        .flex-outer li p {
-            margin: 0;
-        }
+    .flex-outer li label,
+    .flex-outer li p {
+      padding: 8px;
+      font-weight: 300;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
 
-        .flex-outer li input:not([type='checkbox']){
-            padding: 15px;
-            border: none;
-        }
+    .flex-outer>li>label,
+    .flex-outer li p {
+      flex: 1 0 120px;
+      max-width: 220px;
+    }
 
-        .flex-outer li button {
-            margin-left: auto;
-            padding: 8px 16px;
-            border: none;
-            background: #333;
-            color: #f2f2f2;
-            text-transform: uppercase;
-            letter-spacing: .09em;
-            border-radius: 2px;
-        }
+    .flex-outer>li>label+*,
+    .flex-inner {
+      flex: 1 0 220px;
+    }
 
-        .flex-inner li {
-            width: 100px;
-        }
-    </style>
-    <title>Chat using Websocket</title>
+    .flex-outer li p {
+      margin: 0;
+    }
+
+    .flex-outer li input:not([type='checkbox']) {
+      padding: 15px;
+      border: none;
+    }
+
+    .flex-outer li button {
+      margin-left: auto;
+      padding: 8px 16px;
+      border: none;
+      background: #333;
+      color: #f2f2f2;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      border-radius: 2px;
+    }
+
+    .flex-inner li {
+      width: 100px;
+    }
+  </style>
+  <title>Chat using Websocket</title>
 </head>
+
 <body>
-    <div id="message-container"></div>
-    <div class="container">
-        <form id="form">
-          <ul class="flex-outer">
-            <li>
-              <label for="message-input">Message</label>
-              <input type="text" id="message-input" placeholder="Enter your message here">
-              <button type="submit" id="send-button">Send</button>
-            </li>
-            <li>
-              <label for="room-input">Room</label>
-              <input type="text" id="room-input" placeholder="Enter your Room here">
-              <button type="submit" id="room-button">Join</button>
-            </li>
-          </ul>
-        </form>
-      </div>      
+  <div id="message-container"></div>
+  <div class="container">
+    <form id="form">
+      <ul class="flex-outer">
+        <li>
+          <label for="message-input">Message</label>
+          <input type="text" id="message-input" placeholder="Enter your message here">
+          <button type="submit" id="send-button">Send</button>
+        </li>
+        <li>
+          <label for="room-input">Room</label>
+          <input type="text" id="room-input" placeholder="Enter your Room here">
+          <button type="submit" id="room-button">Join</button>
+        </li>
+      </ul>
+    </form>
+  </div>
 </body>
+
 </html>
